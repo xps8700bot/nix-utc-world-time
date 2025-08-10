@@ -409,11 +409,9 @@ function initializeConvertTime() {
     if (result.convertSectionVisible) {
       convertSectionVisible = true;
       convertSection.style.display = "block";
-      toggleConvertBtn.innerHTML =
-        "COLLAPSE &#11205;";
+      toggleConvertBtn.innerHTML = "COLLAPSE &#11205;";
     } else {
-      toggleConvertBtn.innerHTML =
-        "CONVERT TIME &#11206;";
+      toggleConvertBtn.innerHTML = "CONVERT TIME &#11206;";
     }
   });
 
@@ -486,6 +484,25 @@ function populateSourceTimezones() {
       sourceTimezoneSelect.appendChild(option);
     });
   }
+}
+
+function getTimezoneOffset(date, timezone) {
+  if (timezone === "UTC") {
+    return 0;
+  }
+
+  // Use the timezone database to get accurate offset
+  if (typeof window.getCurrentTimezoneInfo === "function") {
+    const tzInfo = window.getCurrentTimezoneInfo(timezone, date.getTime());
+    if (tzInfo) {
+      return tzInfo.gmtOffset * 1000; // Convert seconds to milliseconds
+    }
+  }
+
+  // Fallback: use Intl.DateTimeFormat for offset calculation
+  const utcDate = new Date(date.toLocaleString("en-US", { timeZone: "UTC" }));
+  const tzDate = new Date(date.toLocaleString("en-US", { timeZone: timezone }));
+  return utcDate.getTime() - tzDate.getTime();
 }
 
 function parseDateTimeInput(input, sourceTimezone = null) {
@@ -571,12 +588,36 @@ function performConversion() {
   }
 
   // Parse the input datetime
-  const parsedDate = parseDateTimeInput(input, sourceTimezone);
+  let parsedDate = parseDateTimeInput(input, sourceTimezone);
   if (!parsedDate) {
     showError(
       "Invalid date/time format. Try: 2024-08-04 15:30 or Aug 4, 2024 3:30 PM",
     );
     return;
+  }
+
+  // Adjust the parsed date based on source timezone
+  if (sourceTimezone === "UTC") {
+    // If source is UTC, interpret the parsed date as UTC time
+    const utcTime = Date.UTC(
+      parsedDate.getFullYear(),
+      parsedDate.getMonth(),
+      parsedDate.getDate(),
+      parsedDate.getHours(),
+      parsedDate.getMinutes(),
+      parsedDate.getSeconds(),
+    );
+    parsedDate = new Date(utcTime);
+  } else if (
+    sourceTimezone !== Intl.DateTimeFormat().resolvedOptions().timeZone
+  ) {
+    // If source is not local timezone, we need to adjust for timezone offset
+    // Get the timezone offset for the source timezone at this time
+    const sourceOffset = getTimezoneOffset(parsedDate, sourceTimezone);
+    const localOffset = parsedDate.getTimezoneOffset() * 60000; // Convert minutes to milliseconds
+
+    // Adjust the date to represent the correct UTC time
+    parsedDate = new Date(parsedDate.getTime() - sourceOffset + localOffset);
   }
 
   clearError();
