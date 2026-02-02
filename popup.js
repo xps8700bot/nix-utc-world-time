@@ -519,70 +519,14 @@ function getTimezoneOffset(date, timezone) {
 }
 
 function parseDateTimeInput(input, sourceTimezone = null) {
-  if (!input.trim()) return null;
-
-  const inputLower = input.toLowerCase().trim();
-
-  // Handle relative time expressions
-  if (inputLower === "now") {
-    return new Date();
+  if (window.TimeUtils?.parseDateTimeInput) {
+    return window.TimeUtils.parseDateTimeInput(input, sourceTimezone);
   }
 
-  if (inputLower === "1h ago" || inputLower === "1 hour ago") {
-    return new Date(Date.now() - 60 * 60 * 1000);
-  }
-
-  if (inputLower === "tomorrow noon" || inputLower === "tomorrow 12pm") {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(12, 0, 0, 0);
-    return tomorrow;
-  }
-
-  // Try various date/time formats
-  const formats = [
-    // ISO formats
-    /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/,
-    /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/,
-    /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/,
-
-    // US formats
-    /(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{1,2}):(\d{2}) (AM|PM)/i,
-    /(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{1,2}):(\d{2})/,
-
-    // Other common formats
-    /(\w{3}) (\d{1,2}), (\d{4}) (\d{1,2}):(\d{2}) (AM|PM)/i,
-    /(\d{1,2}) (\w{3}) (\d{4}) (\d{1,2}):(\d{2})/,
-  ];
-
-  // Try parsing with Date constructor first (handles many formats)
-  let parsedDate = new Date(input);
-  if (!isNaN(parsedDate.getTime())) {
-    return parsedDate;
-  }
-
-  // If that fails, try specific formats
-  for (let format of formats) {
-    const match = input.match(format);
-    if (match) {
-      // Handle different format matches
-      if (format.source.includes("T") || format.source.includes(" ")) {
-        // ISO-like formats
-        const year = parseInt(match[1]);
-        const month = parseInt(match[2]) - 1; // JS months are 0-based
-        const day = parseInt(match[3]);
-        const hour = parseInt(match[4]);
-        const minute = parseInt(match[5]);
-        const second = match[6] ? parseInt(match[6]) : 0;
-
-        parsedDate = new Date(year, month, day, hour, minute, second);
-        if (!isNaN(parsedDate.getTime())) {
-          return parsedDate;
-        }
-      }
-    }
-  }
-
+  // Fallback (should not happen if timeUtils.js loaded)
+  if (!input || !input.trim()) return null;
+  const parsedDate = new Date(input);
+  if (!isNaN(parsedDate.getTime())) return parsedDate;
   return null;
 }
 

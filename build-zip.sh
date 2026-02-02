@@ -33,14 +33,19 @@ files = [
     'background.js',
     'popup.html',
     'popup.js',
+    'timeUtils.js',
     'timezoneDatabase.js',
     'icons/icon16.png',
     'icons/icon48.png',
     'icons/icon128.png',
     'icons/icons8-copy-24.png',
     'icons/icons8-trash-24.png',
-    '_locales/en/messages.json',
 ]
+
+# Include all locale message files.
+locale_files = sorted((root / '_locales').glob('*/messages.json'))
+for p in locale_files:
+    files.append(str(p.relative_to(root)))
 
 with zipfile.ZipFile(out_file, 'w', zipfile.ZIP_DEFLATED) as zf:
     for file in files:
