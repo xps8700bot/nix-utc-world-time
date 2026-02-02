@@ -5,7 +5,7 @@
   },
   "extDescription": {
     "description": "The name of the extension",
-    "message": "Get the current UTC time in your browser, with time zones and locale support, and display World Clock."
+    "message": "A stylish world clock with glowing Nixie tube time, real-time updates, and precise timezone handling."
   },
   "extName": {
     "description": "The name of the extension",
@@ -26,5 +26,34 @@
   "timeZoneLabel": {
     "description": "The label for the time zone setting",
     "message": "Time Zone"
+  },
+
+  "convertTitle": {
+    "description": "Title for the Convert Time section",
+    "message": "Convert Time"
+  },
+  "toggleConvertBtn": {
+    "description": "Button text for toggling Convert Time section",
+    "message": "CONVERT TIME"
+  },
+  "convertBtn": {
+    "description": "Button text for performing conversion",
+    "message": "CONVERT"
+  },
+  "convertedTimesLabel": {
+    "description": "Label above conversion results",
+    "message": "Converted Times:"
+  },
+  "timezoneSearchPlaceholder": {
+    "description": "Placeholder text for timezone search input",
+    "message": "Search timezones..."
+  },
+  "addSelectedBtn": {
+    "description": "Button text to add selected timezone",
+    "message": "ADD SELECTED"
+  },
+  "cancelBtn": {
+    "description": "Button text to cancel an action",
+    "message": "CANCEL"
   }
 }
