@@ -79,5 +79,42 @@
   "cancelBtn": {
     "description": "取消按钮",
     "message": "取消"
+  },
+
+  "collapseBtn": {
+    "description": "收起换算区块按钮",
+    "message": "收起"
+  },
+  "localLabel": {
+    "description": "本地时区标签",
+    "message": "本地"
+  },
+  "copyToClipboardTitle": {
+    "description": "复制按钮提示（时钟列表）",
+    "message": "复制到剪贴板"
+  },
+  "deleteTimezoneTitle": {
+    "description": "删除时区按钮提示",
+    "message": "删除时区"
+  },
+  "errorEnterDatetime": {
+    "description": "未输入时间时的错误提示",
+    "message": "请输入要换算的日期/时间"
+  },
+  "errorSelectSourceTimezone": {
+    "description": "未选择源时区时的错误提示",
+    "message": "请选择源时区"
+  },
+  "errorInvalidDatetime": {
+    "description": "时间解析失败时的错误提示",
+    "message": "日期/时间格式无效。示例：2024-08-04 15:30 或 Aug 4, 2024 3:30 PM"
+  },
+  "sourceLabel": {
+    "description": "换算结果中输入来源行的标签",
+    "message": "来源"
+  },
+  "copyThisTimeTitle": {
+    "description": "复制按钮提示（换算结果行）",
+    "message": "复制该时间"
   }
 }
