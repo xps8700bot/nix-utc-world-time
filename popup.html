@@ -484,7 +484,7 @@
     <!-- Convert Time Section -->
     <div id="convertSection" class="convert-section" style="display: none">
       <div class="convert-header">
-        <span class="convert-title">Convert Time</span>
+        <span class="convert-title" data-i18n="convertTitle">Convert Time</span>
       </div>
 
       <div id="convertContent" class="convert-content">
@@ -503,7 +503,9 @@
             <select id="sourceTimezone" class="source-timezone-select">
               <option value="">Select source timezone</option>
             </select>
-            <button id="convertBtn" class="convert-btn">CONVERT</button>
+            <button id="convertBtn" class="convert-btn" data-i18n="convertBtn">
+              CONVERT
+            </button>
           </div>
 
           <div class="quick-presets">
@@ -518,7 +520,7 @@
         <!-- Convert Results -->
         <div id="convertResults" class="convert-results" style="display: none">
           <div class="results-header">
-            <span>Converted Times:</span>
+            <span data-i18n="convertedTimesLabel">Converted Times:</span>
             <button
               id="copyAllResults"
               class="copy-all-btn"
@@ -534,7 +536,11 @@
 
     <!-- Toggle Convert Button -->
     <div class="convert-toggle-container">
-      <button id="toggleConvert" class="convert-toggle-btn">
+      <button
+        id="toggleConvert"
+        class="convert-toggle-btn"
+        data-i18n="toggleConvertBtn"
+      >
         CONVERT TIME
       </button>
     </div>
@@ -557,11 +563,20 @@
           id="timezoneFilter"
           class="search-input"
           placeholder="Search timezones..."
+          data-i18n-placeholder="timezoneSearchPlaceholder"
         />
         <select id="timezoneSelect" class="timezone-dropdown" size="6"></select>
         <div class="action-buttons">
-          <button id="confirmAdd" class="action-btn">ADD SELECTED</button>
-          <button id="cancelAdd" class="action-btn cancel-btn">CANCEL</button>
+          <button id="confirmAdd" class="action-btn" data-i18n="addSelectedBtn">
+            ADD SELECTED
+          </button>
+          <button
+            id="cancelAdd"
+            class="action-btn cancel-btn"
+            data-i18n="cancelBtn"
+          >
+            CANCEL
+          </button>
         </div>
       </div>
     </div>

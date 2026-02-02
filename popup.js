@@ -22,6 +22,24 @@ let allTimezones = [];
 let convertSectionVisible = false;
 let lastConvertedResults = [];
 
+function localizeUi() {
+  if (!chrome?.i18n?.getMessage) return;
+
+  // Inner text
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const msg = chrome.i18n.getMessage(key);
+    if (msg) el.textContent = msg;
+  });
+
+  // Placeholder text
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const msg = chrome.i18n.getMessage(key);
+    if (msg) el.setAttribute("placeholder", msg);
+  });
+}
+
 // Initialize timezone list from the bundled database.
 //
 // Note: keep this lightweight. The timezone database is large, and calling
@@ -52,6 +70,7 @@ function initializeTimezones() {
 
 // Initialize and load saved timezones
 function initialize() {
+  localizeUi();
   initializeTimezones();
   initializeConvertTime();
 
@@ -492,7 +511,7 @@ function getTimezoneOffset(date, timezone) {
   return utcDate.getTime() - tzDate.getTime();
 }
 
-function parseDateTimeInput(input, sourceTimezone = null) {
+function parseDateTimeInput(input, _sourceTimezone = null) {
   if (!input.trim()) return null;
 
   const inputLower = input.toLowerCase().trim();
