@@ -5,7 +5,7 @@
   },
   "extDescription": {
     "description": "The name of the extension",
-    "message": "A stylish world clock with glowing Nixie tube time, real-time updates, and precise timezone handling."
+    "message": "Get the current UTC time in your browser, with time zones and locale support, and display World Clock."
   },
   "extName": {
     "description": "The name of the extension",
@@ -28,32 +28,40 @@
     "message": "Time Zone"
   },
 
-  "convertTitle": {
-    "description": "Title for the Convert Time section",
-    "message": "Convert Time"
+  "popupTitle": {
+    "description": "Title shown in the popup HTML <title>",
+    "message": "NIX UTC & World Time"
   },
-  "toggleConvertBtn": {
-    "description": "Button text for toggling Convert Time section",
-    "message": "CONVERT TIME"
+  "selectSourceTimezoneOption": {
+    "description": "Default option label for source timezone selector",
+    "message": "Select source timezone"
   },
-  "convertBtn": {
-    "description": "Button text for performing conversion",
-    "message": "CONVERT"
+  "datetimeInputPlaceholder": {
+    "description": "Placeholder for datetime input",
+    "message": "Enter date/time (e.g., 2024-08-04 15:30, Aug 4 3:30 PM)"
   },
-  "convertedTimesLabel": {
-    "description": "Label above conversion results",
-    "message": "Converted Times:"
+  "presetNowBtn": {
+    "description": "Preset button: now",
+    "message": "Now"
   },
-  "timezoneSearchPlaceholder": {
-    "description": "Placeholder text for timezone search input",
-    "message": "Search timezones..."
+  "preset1hAgoBtn": {
+    "description": "Preset button: 1 hour ago",
+    "message": "1h ago"
   },
-  "addSelectedBtn": {
-    "description": "Button text to add selected timezone",
-    "message": "ADD SELECTED"
+  "presetTomorrowNoonBtn": {
+    "description": "Preset button: tomorrow noon",
+    "message": "Tomorrow 12pm"
   },
-  "cancelBtn": {
-    "description": "Button text to cancel an action",
-    "message": "CANCEL"
+  "copyAllBtn": {
+    "description": "Button text to copy all conversion results",
+    "message": "COPY ALL"
+  },
+  "copyAllTitle": {
+    "description": "Tooltip for copy-all button",
+    "message": "Copy all results"
+  },
+  "addTimezoneBtn": {
+    "description": "Button text to open timezone selector",
+    "message": "+ ADD TIMEZONE"
   }
 }

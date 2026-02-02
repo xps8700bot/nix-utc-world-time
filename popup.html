@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>WorldClock Pro</title>
+    <title data-i18n="popupTitle">WorldClock Pro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -495,23 +495,21 @@
               type="text"
               id="datetimeInput"
               class="datetime-input"
-              placeholder="Enter date/time (e.g., 2024-08-04 15:30, Aug 4 3:30 PM)"
+              placeholder="Enter date/time (e.g., 2024-08-04 15:30, Aug 4 3:30 PM)" data-i18n-placeholder="datetimeInputPlaceholder"
             />
           </div>
 
           <div class="input-row">
             <select id="sourceTimezone" class="source-timezone-select">
-              <option value="">Select source timezone</option>
+              <option value="" data-i18n="selectSourceTimezoneOption">Select source timezone</option>
             </select>
-            <button id="convertBtn" class="convert-btn" data-i18n="convertBtn">
-              CONVERT
-            </button>
+            <button id="convertBtn" class="convert-btn">CONVERT</button>
           </div>
 
           <div class="quick-presets">
-            <button class="preset-btn" data-preset="now">Now</button>
-            <button class="preset-btn" data-preset="1hour-ago">1h ago</button>
-            <button class="preset-btn" data-preset="tomorrow-noon">
+            <button class="preset-btn" data-preset="now" data-i18n="presetNowBtn">Now</button>
+            <button class="preset-btn" data-preset="1hour-ago" data-i18n="preset1hAgoBtn">1h ago</button>
+            <button class="preset-btn" data-preset="tomorrow-noon" data-i18n="presetTomorrowNoonBtn">
               Tomorrow 12pm
             </button>
           </div>
@@ -525,6 +523,8 @@
               id="copyAllResults"
               class="copy-all-btn"
               title="Copy all results"
+              data-i18n="copyAllBtn"
+              data-i18n-title="copyAllTitle"
             >
               COPY ALL
             </button>
@@ -536,11 +536,7 @@
 
     <!-- Toggle Convert Button -->
     <div class="convert-toggle-container">
-      <button
-        id="toggleConvert"
-        class="convert-toggle-btn"
-        data-i18n="toggleConvertBtn"
-      >
+      <button id="toggleConvert" class="convert-toggle-btn" data-i18n="toggleConvertBtn">
         CONVERT TIME
       </button>
     </div>
@@ -552,7 +548,7 @@
     <ul id="timezoneList" class="timezone-list"></ul>
 
     <div class="controls">
-      <button id="addTimezone" class="add-btn">+ ADD TIMEZONE</button>
+      <button id="addTimezone" class="add-btn" data-i18n="addTimezoneBtn">+ ADD TIMEZONE</button>
       <div
         id="timezoneSelector"
         class="timezone-selector"
@@ -562,21 +558,12 @@
           type="text"
           id="timezoneFilter"
           class="search-input"
-          placeholder="Search timezones..."
-          data-i18n-placeholder="timezoneSearchPlaceholder"
+          placeholder="Search timezones..." data-i18n-placeholder="timezoneSearchPlaceholder"
         />
         <select id="timezoneSelect" class="timezone-dropdown" size="6"></select>
         <div class="action-buttons">
-          <button id="confirmAdd" class="action-btn" data-i18n="addSelectedBtn">
-            ADD SELECTED
-          </button>
-          <button
-            id="cancelAdd"
-            class="action-btn cancel-btn"
-            data-i18n="cancelBtn"
-          >
-            CANCEL
-          </button>
+          <button id="confirmAdd" class="action-btn" data-i18n="addSelectedBtn">ADD SELECTED</button>
+          <button id="cancelAdd" class="action-btn cancel-btn" data-i18n="cancelBtn">CANCEL</button>
         </div>
       </div>
     </div>

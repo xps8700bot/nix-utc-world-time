@@ -38,6 +38,13 @@ function localizeUi() {
     const msg = chrome.i18n.getMessage(key);
     if (msg) el.setAttribute("placeholder", msg);
   });
+
+  // Title attribute
+  document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-title");
+    const msg = chrome.i18n.getMessage(key);
+    if (msg) el.setAttribute("title", msg);
+  });
 }
 
 // Initialize timezone list from the bundled database.
@@ -511,7 +518,7 @@ function getTimezoneOffset(date, timezone) {
   return utcDate.getTime() - tzDate.getTime();
 }
 
-function parseDateTimeInput(input, _sourceTimezone = null) {
+function parseDateTimeInput(input, sourceTimezone = null) {
   if (!input.trim()) return null;
 
   const inputLower = input.toLowerCase().trim();
