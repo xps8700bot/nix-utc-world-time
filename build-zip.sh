@@ -1,21 +1,37 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 # Build script for NIX UTC & World Time Chrome Extension
-cd "/mnt/d/Documents/source/UTC Time Chrome Extension"
+# Creates a versioned zip in ./dist/ based on manifest.json.
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$ROOT_DIR"
 
 echo "Building Chrome extension package..."
 
-# Remove old zip if exists
-rm -f nix-utc-world-time-v1.0.zip
+VERSION="$(python3 -c 'import json; print(json.load(open("manifest.json"))["version"])')"
+OUT_DIR="$ROOT_DIR/dist"
+OUT_FILE="$OUT_DIR/nix-utc-world-time-v${VERSION}.zip"
 
-# Create new zip package with all required files
-python3 << 'PYTHON_EOF'
+mkdir -p "$OUT_DIR"
+rm -f "$OUT_FILE"
+
+python3 - << 'PY'
+import json
 import zipfile
+from pathlib import Path
+
+root = Path.cwd()
+manifest = json.loads((root / 'manifest.json').read_text(encoding='utf-8'))
+version = manifest['version']
+out_dir = root / 'dist'
+out_dir.mkdir(exist_ok=True)
+out_file = out_dir / f'nix-utc-world-time-v{version}.zip'
 
 files = [
     'manifest.json',
     'background.js',
-    'popup.html', 
+    'popup.html',
     'popup.js',
     'timezoneDatabase.js',
     'icons/icon16.png',
@@ -23,16 +39,18 @@ files = [
     'icons/icon128.png',
     'icons/icons8-copy-24.png',
     'icons/icons8-trash-24.png',
-    '_locales/en/messages.json'
+    '_locales/en/messages.json',
 ]
 
-with zipfile.ZipFile('nix-utc-world-time-v1.0.zip', 'w', zipfile.ZIP_DEFLATED) as zf:
+with zipfile.ZipFile(out_file, 'w', zipfile.ZIP_DEFLATED) as zf:
     for file in files:
-        zf.write(file)
+        p = root / file
+        if not p.exists():
+            raise SystemExit(f"Missing file: {file}")
+        zf.write(p, arcname=file)
         print(f"Added: {file}")
 
-print("\n✅ Successfully created nix-utc-world-time-v1.0.zip")
-PYTHON_EOF
+print(f"\n✅ Successfully created {out_file}")
+PY
 
-# Show file size
-ls -lh nix-utc-world-time-v1.0.zip
+ls -lh "$OUT_FILE"
