@@ -26,5 +26,42 @@
   "timeZoneLabel": {
     "description": "The label for the time zone setting",
     "message": "Time Zone"
+  },
+
+  "popupTitle": {
+    "description": "Title shown in the popup HTML <title>",
+    "message": "NIX UTC & World Time"
+  },
+  "selectSourceTimezoneOption": {
+    "description": "Default option label for source timezone selector",
+    "message": "Select source timezone"
+  },
+  "datetimeInputPlaceholder": {
+    "description": "Placeholder for datetime input",
+    "message": "Enter date/time (e.g., 2024-08-04 15:30, Aug 4 3:30 PM)"
+  },
+  "presetNowBtn": {
+    "description": "Preset button: now",
+    "message": "Now"
+  },
+  "preset1hAgoBtn": {
+    "description": "Preset button: 1 hour ago",
+    "message": "1h ago"
+  },
+  "presetTomorrowNoonBtn": {
+    "description": "Preset button: tomorrow noon",
+    "message": "Tomorrow 12pm"
+  },
+  "copyAllBtn": {
+    "description": "Button text to copy all conversion results",
+    "message": "COPY ALL"
+  },
+  "copyAllTitle": {
+    "description": "Tooltip for copy-all button",
+    "message": "Copy all results"
+  },
+  "addTimezoneBtn": {
+    "description": "Button text to open timezone selector",
+    "message": "+ ADD TIMEZONE"
   }
 }
