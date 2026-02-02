@@ -433,12 +433,12 @@ function initializeConvertTime() {
     if (result.convertSectionVisible) {
       convertSectionVisible = true;
       convertSection.style.display = "block";
-      toggleConvertBtn.textContent = `${t("collapseBtn", "COLLAPSE")} ▲`;
+      toggleConvertBtn.textContent = `${t("collapseBtn", "COLLAPSE")} \u25B2`;
     } else {
       toggleConvertBtn.textContent = `${t(
         "toggleConvertBtn",
         "CONVERT TIME",
-      )} ▼`;
+      )} \u25BC`;
     }
   });
 
@@ -467,8 +467,8 @@ function toggleConvertSection() {
 
   // Update button text with arrow icons
   toggleConvertBtn.textContent = convertSectionVisible
-    ? `${t("collapseBtn", "COLLAPSE")} ▲`
-    : `${t("toggleConvertBtn", "CONVERT TIME")} ▼`;
+    ? `${t("collapseBtn", "COLLAPSE")} \u25B2`
+    : `${t("toggleConvertBtn", "CONVERT TIME")} \u25BC`;
 
   // Save state
   chrome.storage.local.set({ convertSectionVisible: convertSectionVisible });
