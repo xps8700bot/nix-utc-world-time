@@ -22,44 +22,31 @@ let allTimezones = [];
 let convertSectionVisible = false;
 let lastConvertedResults = [];
 
-// Initialize timezone list from dynamic database
+// Initialize timezone list from the bundled database.
+//
+// Note: keep this lightweight. The timezone database is large, and calling
+// getCurrentTimezoneInfo() for every zone during startup can make the popup
+// feel sluggish. We compute abbreviations/offsets when rendering instead.
 function initializeTimezones() {
-  if (typeof window.getAvailableTimezones === "function") {
-    try {
-      allTimezones = window.getAvailableTimezones().map((tz) => {
-        // Get both summer and winter abbreviations for comprehensive search
-        const currentTime = Date.now();
-        const summerTime = new Date("2024-07-15T12:00:00Z").getTime(); // July (summer)
-        const winterTime = new Date("2024-01-15T12:00:00Z").getTime(); // January (winter)
-
-        const currentInfo = window.getCurrentTimezoneInfo(tz.zone, currentTime);
-        const summerInfo = window.getCurrentTimezoneInfo(tz.zone, summerTime);
-        const winterInfo = window.getCurrentTimezoneInfo(tz.zone, winterTime);
-
-        const currentAbbr = currentInfo ? currentInfo.abbreviation : "";
-        const summerAbbr = summerInfo ? summerInfo.abbreviation : "";
-        const winterAbbr = winterInfo ? winterInfo.abbreviation : "";
-
-        // Combine all unique abbreviations for search
-        const allAbbrs = [
-          ...new Set([currentAbbr, summerAbbr, winterAbbr].filter((a) => a)),
-        ].join(" ");
-
-        return {
-          id: tz.zone,
-          name: tz.name,
-          country: tz.country,
-          abbreviation: currentAbbr,
-          displayText: `${tz.name} (${tz.zone})`,
-          searchText:
-            `${tz.name} ${tz.zone} ${tz.country} ${allAbbrs}`.toLowerCase(),
-        };
-      });
-    } catch (error) {
-      console.error("Error initializing timezones:", error);
-    }
-  } else {
+  if (typeof window.getAvailableTimezones !== "function") {
     console.error("getAvailableTimezones function not found");
+    return;
+  }
+
+  try {
+    allTimezones = window.getAvailableTimezones().map((tz) => {
+      const displayText = `${tz.name} (${tz.zone})`;
+      return {
+        id: tz.zone,
+        name: tz.name,
+        country: tz.country,
+        abbreviation: "",
+        displayText,
+        searchText: `${tz.name} ${tz.zone} ${tz.country}`.toLowerCase(),
+      };
+    });
+  } catch (error) {
+    console.error("Error initializing timezones:", error);
   }
 }
 
