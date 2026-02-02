@@ -1,0 +1,83 @@
+{
+  "extName": {
+    "description": "扩展名称",
+    "message": "NIX UTC & World Time"
+  },
+  "extShortName": {
+    "description": "扩展短名称",
+    "message": "UTC 时间"
+  },
+  "extDescription": {
+    "description": "扩展描述",
+    "message": "一个风格化的世界时钟：霓虹辉光/Nixie 风格显示，实时更新，并提供精确的时区处理与换算。"
+  },
+
+  "popupTitle": {
+    "description": "弹窗页面标题",
+    "message": "NIX UTC & World Time"
+  },
+
+  "convertTitle": {
+    "description": "Convert Time 区块标题",
+    "message": "时间换算"
+  },
+  "toggleConvertBtn": {
+    "description": "展开/收起 Convert Time 的按钮",
+    "message": "时间换算"
+  },
+  "convertBtn": {
+    "description": "执行换算按钮",
+    "message": "换算"
+  },
+  "convertedTimesLabel": {
+    "description": "换算结果标题",
+    "message": "换算结果："
+  },
+  "copyAllBtn": {
+    "description": "复制全部结果按钮",
+    "message": "全部复制"
+  },
+  "copyAllTitle": {
+    "description": "复制全部结果的提示",
+    "message": "复制全部结果"
+  },
+
+  "datetimeInputPlaceholder": {
+    "description": "时间输入框提示",
+    "message": "输入日期/时间（例如：2024-08-04 15:30，或 Aug 4 3:30 PM）"
+  },
+  "selectSourceTimezoneOption": {
+    "description": "源时区下拉框默认项",
+    "message": "选择源时区"
+  },
+
+  "presetNowBtn": {
+    "description": "快捷：现在",
+    "message": "现在"
+  },
+  "preset1hAgoBtn": {
+    "description": "快捷：1 小时前",
+    "message": "1 小时前"
+  },
+  "presetTomorrowNoonBtn": {
+    "description": "快捷：明天中午",
+    "message": "明天 12 点"
+  },
+
+  "timezoneSearchPlaceholder": {
+    "description": "时区搜索框提示",
+    "message": "搜索时区..."
+  },
+  "addTimezoneBtn": {
+    "description": "添加时区按钮",
+    "message": "+ 添加时区"
+  },
+  "addSelectedBtn": {
+    "description": "添加选中项按钮",
+    "message": "添加所选"
+  },
+  "cancelBtn": {
+    "description": "取消按钮",
+    "message": "取消"
+  }
+}
