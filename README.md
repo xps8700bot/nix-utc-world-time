@@ -21,3 +21,7 @@ This will create a versioned zip file under `./dist/`.
 
 - Timezone data is bundled in `timezoneDatabase.js` (large file).
 - The popup is rendered by `popup.html` + `popup.js`.
+
+## Privacy
+
+This extension runs locally in your browser. It does not send your time input or timezone selections to any server.

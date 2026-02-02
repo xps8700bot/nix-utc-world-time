@@ -1,7 +1,13 @@
 {
+  "private": true,
   "devDependencies": {
     "eslint": "8.52.0",
     "prettier": "3.1.0",
     "prettier-eslint": "16.1.2"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier -w .",
+    "format:check": "prettier -c ."
   }
 }

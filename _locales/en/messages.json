@@ -26,5 +26,83 @@
   "timeZoneLabel": {
     "description": "The label for the time zone setting",
     "message": "Time Zone"
+  },
+
+  "popupTitle": {
+    "description": "Title shown in the popup HTML <title>",
+    "message": "NIX UTC & World Time"
+  },
+  "selectSourceTimezoneOption": {
+    "description": "Default option label for source timezone selector",
+    "message": "Select source timezone"
+  },
+  "datetimeInputPlaceholder": {
+    "description": "Placeholder for datetime input",
+    "message": "Enter date/time (e.g., 2024-08-04 15:30, Aug 4 3:30 PM)"
+  },
+  "presetNowBtn": {
+    "description": "Preset button: now",
+    "message": "Now"
+  },
+  "preset1hAgoBtn": {
+    "description": "Preset button: 1 hour ago",
+    "message": "1h ago"
+  },
+  "presetTomorrowNoonBtn": {
+    "description": "Preset button: tomorrow noon",
+    "message": "Tomorrow 12pm"
+  },
+  "copyAllBtn": {
+    "description": "Button text to copy all conversion results",
+    "message": "COPY ALL"
+  },
+  "copyAllTitle": {
+    "description": "Tooltip for copy-all button",
+    "message": "Copy all results"
+  },
+  "addTimezoneBtn": {
+    "description": "Button text to open timezone selector",
+    "message": "+ ADD TIMEZONE"
+  },
+
+  "collapseBtn": {
+    "description": "Button text for collapsing Convert Time section",
+    "message": "COLLAPSE"
+  },
+  "toggleConvertBtn": {
+    "description": "Button text for toggling Convert Time section",
+    "message": "CONVERT TIME"
+  },
+  "localLabel": {
+    "description": "Label for local timezone in selectors/displays",
+    "message": "Local"
+  },
+  "copyToClipboardTitle": {
+    "description": "Tooltip for copy buttons in the clock list",
+    "message": "Copy to clipboard"
+  },
+  "deleteTimezoneTitle": {
+    "description": "Tooltip for delete timezone button",
+    "message": "Delete timezone"
+  },
+  "errorEnterDatetime": {
+    "description": "Error shown when datetime input is missing",
+    "message": "Please enter a date/time to convert"
+  },
+  "errorSelectSourceTimezone": {
+    "description": "Error shown when source timezone is missing",
+    "message": "Please select a source timezone"
+  },
+  "errorInvalidDatetime": {
+    "description": "Error shown when datetime parsing fails",
+    "message": "Invalid date/time format. Try: 2024-08-04 15:30 or Aug 4, 2024 3:30 PM"
+  },
+  "sourceLabel": {
+    "description": "Label for the input source line in conversion results",
+    "message": "Source"
+  },
+  "copyThisTimeTitle": {
+    "description": "Tooltip for copy button in conversion result rows",
+    "message": "Copy this time"
   }
 }

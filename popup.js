@@ -22,6 +22,40 @@ let allTimezones = [];
 let convertSectionVisible = false;
 let lastConvertedResults = [];
 
+function t(key, fallback = "") {
+  try {
+    const msg = chrome?.i18n?.getMessage?.(key);
+    return msg || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function localizeUi() {
+  if (!chrome?.i18n?.getMessage) return;
+
+  // Inner text
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const msg = chrome.i18n.getMessage(key);
+    if (msg) el.textContent = msg;
+  });
+
+  // Placeholder text
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const msg = chrome.i18n.getMessage(key);
+    if (msg) el.setAttribute("placeholder", msg);
+  });
+
+  // Title attribute
+  document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-title");
+    const msg = chrome.i18n.getMessage(key);
+    if (msg) el.setAttribute("title", msg);
+  });
+}
+
 // Initialize timezone list from the bundled database.
 //
 // Note: keep this lightweight. The timezone database is large, and calling
@@ -52,6 +86,7 @@ function initializeTimezones() {
 
 // Initialize and load saved timezones
 function initialize() {
+  localizeUi();
   initializeTimezones();
   initializeConvertTime();
 
@@ -242,7 +277,7 @@ function updateDisplay() {
     <div style="display: flex; align-items: center;">
       <button class="copy-btn" data-date="${utcFormat.date}" data-time="${
         utcFormat.time
-      }" title="Copy to clipboard">
+      }" title="Copy to clipboard" data-i18n-title="copyToClipboardTitle">
         <img src="icons/icons8-copy-24.png" class="button-icon" alt="Copy">
       </button>
       <div style="width: 20px;"></div>
@@ -288,7 +323,7 @@ function updateDisplay() {
     <div style="display: flex; align-items: center;">
       <button class="copy-btn" data-date="${localFormat.date}" data-time="${
         localFormat.time
-      }" title="Copy to clipboard">
+      }" title="Copy to clipboard" data-i18n-title="copyToClipboardTitle">
         <img src="icons/icons8-copy-24.png" class="button-icon" alt="Copy">
       </button>
       <div style="width: 20px;"></div>
@@ -345,10 +380,12 @@ function updateDisplay() {
       <div style="display: flex; align-items: center;">
         <button class="copy-btn" data-timezone="${timezone}" data-date="${
           timeFormat.date
-        }" data-time="${timeFormat.time}" title="Copy to clipboard">
+        }" data-time="${
+          timeFormat.time
+        }" title="Copy to clipboard" data-i18n-title="copyToClipboardTitle">
           <img src="icons/icons8-copy-24.png" class="button-icon" alt="Copy">
         </button>
-        <button class="remove-btn" data-timezone="${timezone}" title="Delete timezone">
+        <button class="remove-btn" data-timezone="${timezone}" title="Delete timezone" data-i18n-title="deleteTimezoneTitle">
           <img src="icons/icons8-trash-24.png" class="button-icon" alt="Delete">
         </button>
       </div>
@@ -396,9 +433,12 @@ function initializeConvertTime() {
     if (result.convertSectionVisible) {
       convertSectionVisible = true;
       convertSection.style.display = "block";
-      toggleConvertBtn.innerHTML = "COLLAPSE &#11205;";
+      toggleConvertBtn.innerHTML = `${t("collapseBtn", "COLLAPSE")} &#11205;`;
     } else {
-      toggleConvertBtn.innerHTML = "CONVERT TIME &#11206;";
+      toggleConvertBtn.innerHTML = `${t(
+        "toggleConvertBtn",
+        "CONVERT TIME",
+      )} &#11206;`;
     }
   });
 
@@ -427,8 +467,8 @@ function toggleConvertSection() {
 
   // Update button text with arrow icons
   toggleConvertBtn.innerHTML = convertSectionVisible
-    ? "COLLAPSE &#11205;"
-    : "CONVERT TIME &#11206;";
+    ? `${t("collapseBtn", "COLLAPSE")} &#11205;`
+    : `${t("toggleConvertBtn", "CONVERT TIME")} &#11206;`;
 
   // Save state
   chrome.storage.local.set({ convertSectionVisible: convertSectionVisible });
@@ -440,8 +480,10 @@ function toggleConvertSection() {
 }
 
 function populateSourceTimezones() {
-  sourceTimezoneSelect.innerHTML =
-    '<option value="">Select source timezone</option>';
+  sourceTimezoneSelect.innerHTML = `<option value="">${t(
+    "selectSourceTimezoneOption",
+    "Select source timezone",
+  )}</option>`;
 
   // Add UTC option
   const utcOption = document.createElement("option");
@@ -453,7 +495,7 @@ function populateSourceTimezones() {
   const localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const localOption = document.createElement("option");
   localOption.value = localTimezone;
-  localOption.textContent = `Local (${localTimezone})`;
+  localOption.textContent = `${t("localLabel", "Local")} (${localTimezone})`;
   sourceTimezoneSelect.appendChild(localOption);
 
   // Add separator
@@ -493,70 +535,14 @@ function getTimezoneOffset(date, timezone) {
 }
 
 function parseDateTimeInput(input, sourceTimezone = null) {
-  if (!input.trim()) return null;
-
-  const inputLower = input.toLowerCase().trim();
-
-  // Handle relative time expressions
-  if (inputLower === "now") {
-    return new Date();
+  if (window.TimeUtils?.parseDateTimeInput) {
+    return window.TimeUtils.parseDateTimeInput(input, sourceTimezone);
   }
 
-  if (inputLower === "1h ago" || inputLower === "1 hour ago") {
-    return new Date(Date.now() - 60 * 60 * 1000);
-  }
-
-  if (inputLower === "tomorrow noon" || inputLower === "tomorrow 12pm") {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(12, 0, 0, 0);
-    return tomorrow;
-  }
-
-  // Try various date/time formats
-  const formats = [
-    // ISO formats
-    /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/,
-    /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/,
-    /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/,
-
-    // US formats
-    /(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{1,2}):(\d{2}) (AM|PM)/i,
-    /(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{1,2}):(\d{2})/,
-
-    // Other common formats
-    /(\w{3}) (\d{1,2}), (\d{4}) (\d{1,2}):(\d{2}) (AM|PM)/i,
-    /(\d{1,2}) (\w{3}) (\d{4}) (\d{1,2}):(\d{2})/,
-  ];
-
-  // Try parsing with Date constructor first (handles many formats)
-  let parsedDate = new Date(input);
-  if (!isNaN(parsedDate.getTime())) {
-    return parsedDate;
-  }
-
-  // If that fails, try specific formats
-  for (let format of formats) {
-    const match = input.match(format);
-    if (match) {
-      // Handle different format matches
-      if (format.source.includes("T") || format.source.includes(" ")) {
-        // ISO-like formats
-        const year = parseInt(match[1]);
-        const month = parseInt(match[2]) - 1; // JS months are 0-based
-        const day = parseInt(match[3]);
-        const hour = parseInt(match[4]);
-        const minute = parseInt(match[5]);
-        const second = match[6] ? parseInt(match[6]) : 0;
-
-        parsedDate = new Date(year, month, day, hour, minute, second);
-        if (!isNaN(parsedDate.getTime())) {
-          return parsedDate;
-        }
-      }
-    }
-  }
-
+  // Fallback (should not happen if timeUtils.js loaded)
+  if (!input || !input.trim()) return null;
+  const parsedDate = new Date(input);
+  if (!isNaN(parsedDate.getTime())) return parsedDate;
   return null;
 }
 
@@ -565,12 +551,14 @@ function performConversion() {
   const sourceTimezone = sourceTimezoneSelect.value;
 
   if (!input) {
-    showError("Please enter a date/time to convert");
+    showError(t("errorEnterDatetime", "Please enter a date/time to convert"));
     return;
   }
 
   if (!sourceTimezone) {
-    showError("Please select a source timezone");
+    showError(
+      t("errorSelectSourceTimezone", "Please select a source timezone"),
+    );
     return;
   }
 
@@ -578,7 +566,10 @@ function performConversion() {
   let parsedDate = parseDateTimeInput(input, sourceTimezone);
   if (!parsedDate) {
     showError(
-      "Invalid date/time format. Try: 2024-08-04 15:30 or Aug 4, 2024 3:30 PM",
+      t(
+        "errorInvalidDatetime",
+        "Invalid date/time format. Try: 2024-08-04 15:30 or Aug 4, 2024 3:30 PM",
+      ),
     );
     return;
   }
@@ -651,13 +642,16 @@ function displayConvertResults(results, originalInput, sourceTimezone) {
     sourceTimezone === "UTC"
       ? "UTC"
       : sourceTimezone === Intl.DateTimeFormat().resolvedOptions().timeZone
-        ? "Local"
+        ? t("localLabel", "Local")
         : sourceTimezone;
 
   resultsList.innerHTML = `
     <div class="convert-result-row" style="background: rgba(255, 165, 0, 0.1); border-color: rgba(255, 165, 0, 0.2);">
       <div class="timezone-info">
-        <span style="color: #ffa500; font-size: 11px; font-weight: bold;">Source: ${originalInput} (${sourceLabel})</span>
+        <span style="color: #ffa500; font-size: 11px; font-weight: bold;">${t(
+          "sourceLabel",
+          "Source",
+        )}: ${originalInput} (${sourceLabel})</span>
       </div>
     </div>
   `;
@@ -680,7 +674,7 @@ function displayConvertResults(results, originalInput, sourceTimezone) {
       </div>
       <button class="copy-btn" data-datetime="${result.date} ${
         result.time
-      }" title="Copy this time">
+      }" title="${t("copyThisTimeTitle", "Copy this time")}">
         <img src="icons/icons8-copy-24.png" class="button-icon" alt="Copy" style="width: 12px; height: 12px;">
       </button>
     `;
