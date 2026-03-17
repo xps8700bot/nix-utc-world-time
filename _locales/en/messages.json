@@ -7,10 +7,6 @@
         "description": "Button text to open timezone selector",
         "message": "+ ADD TIMEZONE"
     },
-    "backButton": {
-        "description": "The label for the back button",
-        "message": "Back"
-    },
     "cancelBtn": {
         "description": "Button label to cancel the add-timezone dialog",
         "message": "CANCEL"
@@ -79,10 +75,6 @@
         "description": "Label for local timezone in selectors/displays",
         "message": "Local"
     },
-    "localeLabel": {
-        "description": "The label for the locale setting",
-        "message": "Locale"
-    },
     "popupTitle": {
         "description": "Title shown in the popup HTML <title>",
         "message": "NIX UTC & World Time"
@@ -103,17 +95,9 @@
         "description": "Default option label for source timezone selector",
         "message": "Select source timezone"
     },
-    "settingsLabel": {
-        "description": "The label for the settings page",
-        "message": "Settings"
-    },
     "sourceLabel": {
         "description": "Label for the input source line in conversion results",
         "message": "Source"
-    },
-    "timeZoneLabel": {
-        "description": "The label for the time zone setting",
-        "message": "Time Zone"
     },
     "timezoneSearchPlaceholder": {
         "description": "Placeholder text in the timezone search filter input",
