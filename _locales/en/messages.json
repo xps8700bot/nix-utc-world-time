@@ -1,108 +1,126 @@
 {
-  "backButton": {
-    "description": "The label for the back button",
-    "message": "Back"
-  },
-  "extDescription": {
-    "description": "The name of the extension",
-    "message": "Get the current UTC time in your browser, with time zones and locale support, and display World Clock."
-  },
-  "extName": {
-    "description": "The name of the extension",
-    "message": "NIX UTC & World Time"
-  },
-  "extShortName": {
-    "description": "The short name of the extension",
-    "message": "UTC Time"
-  },
-  "localeLabel": {
-    "description": "The label for the locale setting",
-    "message": "Locale"
-  },
-  "settingsLabel": {
-    "description": "The label for the settings page",
-    "message": "Settings"
-  },
-  "timeZoneLabel": {
-    "description": "The label for the time zone setting",
-    "message": "Time Zone"
-  },
-
-  "popupTitle": {
-    "description": "Title shown in the popup HTML <title>",
-    "message": "NIX UTC & World Time"
-  },
-  "selectSourceTimezoneOption": {
-    "description": "Default option label for source timezone selector",
-    "message": "Select source timezone"
-  },
-  "datetimeInputPlaceholder": {
-    "description": "Placeholder for datetime input",
-    "message": "Enter date/time (e.g., 2024-08-04 15:30, Aug 4 3:30 PM)"
-  },
-  "presetNowBtn": {
-    "description": "Preset button: now",
-    "message": "Now"
-  },
-  "preset1hAgoBtn": {
-    "description": "Preset button: 1 hour ago",
-    "message": "1h ago"
-  },
-  "presetTomorrowNoonBtn": {
-    "description": "Preset button: tomorrow noon",
-    "message": "Tomorrow 12pm"
-  },
-  "copyAllBtn": {
-    "description": "Button text to copy all conversion results",
-    "message": "COPY ALL"
-  },
-  "copyAllTitle": {
-    "description": "Tooltip for copy-all button",
-    "message": "Copy all results"
-  },
-  "addTimezoneBtn": {
-    "description": "Button text to open timezone selector",
-    "message": "+ ADD TIMEZONE"
-  },
-
-  "collapseBtn": {
-    "description": "Button text for collapsing Convert Time section",
-    "message": "COLLAPSE"
-  },
-  "toggleConvertBtn": {
-    "description": "Button text for toggling Convert Time section",
-    "message": "CONVERT TIME"
-  },
-  "localLabel": {
-    "description": "Label for local timezone in selectors/displays",
-    "message": "Local"
-  },
-  "copyToClipboardTitle": {
-    "description": "Tooltip for copy buttons in the clock list",
-    "message": "Copy to clipboard"
-  },
-  "deleteTimezoneTitle": {
-    "description": "Tooltip for delete timezone button",
-    "message": "Delete timezone"
-  },
-  "errorEnterDatetime": {
-    "description": "Error shown when datetime input is missing",
-    "message": "Please enter a date/time to convert"
-  },
-  "errorSelectSourceTimezone": {
-    "description": "Error shown when source timezone is missing",
-    "message": "Please select a source timezone"
-  },
-  "errorInvalidDatetime": {
-    "description": "Error shown when datetime parsing fails",
-    "message": "Invalid date/time format. Try: 2024-08-04 15:30 or Aug 4, 2024 3:30 PM"
-  },
-  "sourceLabel": {
-    "description": "Label for the input source line in conversion results",
-    "message": "Source"
-  },
-  "copyThisTimeTitle": {
-    "description": "Tooltip for copy button in conversion result rows",
-    "message": "Copy this time"
-  }
+    "addSelectedBtn": {
+        "description": "Button label to confirm adding the selected timezone",
+        "message": "ADD SELECTED"
+    },
+    "addTimezoneBtn": {
+        "description": "Button text to open timezone selector",
+        "message": "+ ADD TIMEZONE"
+    },
+    "backButton": {
+        "description": "The label for the back button",
+        "message": "Back"
+    },
+    "cancelBtn": {
+        "description": "Button label to cancel the add-timezone dialog",
+        "message": "CANCEL"
+    },
+    "collapseBtn": {
+        "description": "Button text for collapsing Convert Time section",
+        "message": "COLLAPSE"
+    },
+    "convertTitle": {
+        "description": "Title label for the Convert Time section",
+        "message": "Convert Time"
+    },
+    "convertedTimesLabel": {
+        "description": "Label shown above the list of converted times",
+        "message": "Converted Times:"
+    },
+    "copyAllBtn": {
+        "description": "Button text to copy all conversion results",
+        "message": "COPY ALL"
+    },
+    "copyAllTitle": {
+        "description": "Tooltip for copy-all button",
+        "message": "Copy all results"
+    },
+    "copyThisTimeTitle": {
+        "description": "Tooltip for copy button in conversion result rows",
+        "message": "Copy this time"
+    },
+    "copyToClipboardTitle": {
+        "description": "Tooltip for copy buttons in the clock list",
+        "message": "Copy to clipboard"
+    },
+    "datetimeInputPlaceholder": {
+        "description": "Placeholder for datetime input",
+        "message": "Enter date/time (e.g., 2024-08-04 15:30, Aug 4 3:30 PM)"
+    },
+    "deleteTimezoneTitle": {
+        "description": "Tooltip for delete timezone button",
+        "message": "Delete timezone"
+    },
+    "errorEnterDatetime": {
+        "description": "Error shown when datetime input is missing",
+        "message": "Please enter a date/time to convert"
+    },
+    "errorInvalidDatetime": {
+        "description": "Error shown when datetime parsing fails",
+        "message": "Invalid date/time format. Try: 2024-08-04 15:30 or Aug 4, 2024 3:30 PM"
+    },
+    "errorSelectSourceTimezone": {
+        "description": "Error shown when source timezone is missing",
+        "message": "Please select a source timezone"
+    },
+    "extDescription": {
+        "description": "The name of the extension",
+        "message": "Get the current UTC time in your browser, with time zones and locale support, and display World Clock."
+    },
+    "extName": {
+        "description": "The name of the extension",
+        "message": "NIX UTC & World Time"
+    },
+    "extShortName": {
+        "description": "The short name of the extension",
+        "message": "UTC Time"
+    },
+    "localLabel": {
+        "description": "Label for local timezone in selectors/displays",
+        "message": "Local"
+    },
+    "localeLabel": {
+        "description": "The label for the locale setting",
+        "message": "Locale"
+    },
+    "popupTitle": {
+        "description": "Title shown in the popup HTML <title>",
+        "message": "NIX UTC & World Time"
+    },
+    "preset1hAgoBtn": {
+        "description": "Preset button: 1 hour ago",
+        "message": "1h ago"
+    },
+    "presetNowBtn": {
+        "description": "Preset button: now",
+        "message": "Now"
+    },
+    "presetTomorrowNoonBtn": {
+        "description": "Preset button: tomorrow noon",
+        "message": "Tomorrow 12pm"
+    },
+    "selectSourceTimezoneOption": {
+        "description": "Default option label for source timezone selector",
+        "message": "Select source timezone"
+    },
+    "settingsLabel": {
+        "description": "The label for the settings page",
+        "message": "Settings"
+    },
+    "sourceLabel": {
+        "description": "Label for the input source line in conversion results",
+        "message": "Source"
+    },
+    "timeZoneLabel": {
+        "description": "The label for the time zone setting",
+        "message": "Time Zone"
+    },
+    "timezoneSearchPlaceholder": {
+        "description": "Placeholder text in the timezone search filter input",
+        "message": "Search timezones..."
+    },
+    "toggleConvertBtn": {
+        "description": "Button text for toggling Convert Time section",
+        "message": "CONVERT TIME"
+    }
 }
