@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "NIX UTC & World Time",
-  "version": "1.0.2",
+  "name": "__MSG_extName__",
+  "short_name": "__MSG_extShortName__",
+  "version": "1.0.3",
   "default_locale": "en",
-  "description": "A stylish world clock with glowing Nixie tube time, real-time updates, and precise timezone handling.",
+  "description": "__MSG_extDescription__",
   "permissions": ["alarms", "storage"],
   "background": {
     "service_worker": "background.js"
