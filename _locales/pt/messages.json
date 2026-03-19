@@ -1,0 +1,110 @@
+{
+    "addSelectedBtn": {
+        "description": "Button label to confirm adding the selected timezone",
+        "message": "ADICIONAR SELECIONADO"
+    },
+    "addTimezoneBtn": {
+        "description": "Button text to open timezone selector",
+        "message": "+ ADICIONAR FUSO HORÁRIO"
+    },
+    "cancelBtn": {
+        "description": "Button label to cancel the add-timezone dialog",
+        "message": "CANCELAR"
+    },
+    "collapseBtn": {
+        "description": "Button text for collapsing Convert Time section",
+        "message": "RECOLHER"
+    },
+    "convertTitle": {
+        "description": "Title label for the Convert Time section",
+        "message": "Converter Horário"
+    },
+    "convertedTimesLabel": {
+        "description": "Label shown above the list of converted times",
+        "message": "Horários Convertidos:"
+    },
+    "copyAllBtn": {
+        "description": "Button text to copy all conversion results",
+        "message": "COPIAR TUDO"
+    },
+    "copyAllTitle": {
+        "description": "Tooltip for copy-all button",
+        "message": "Copiar todos os resultados"
+    },
+    "copyThisTimeTitle": {
+        "description": "Tooltip for copy button in conversion result rows",
+        "message": "Copiar este horário"
+    },
+    "copyToClipboardTitle": {
+        "description": "Tooltip for copy buttons in the clock list",
+        "message": "Copiar para a área de transferência"
+    },
+    "datetimeInputPlaceholder": {
+        "description": "Placeholder for datetime input",
+        "message": "Insira data/hora (ex: 2024-08-04 15:30, 4 ago 15:30)"
+    },
+    "deleteTimezoneTitle": {
+        "description": "Tooltip for delete timezone button",
+        "message": "Excluir fuso horário"
+    },
+    "errorEnterDatetime": {
+        "description": "Error shown when datetime input is missing",
+        "message": "Por favor, insira uma data/hora para converter"
+    },
+    "errorInvalidDatetime": {
+        "description": "Error shown when datetime parsing fails",
+        "message": "Formato de data/hora inválido. Tente: 2024-08-04 15:30 ou 4 de ago de 2024 15:30"
+    },
+    "errorSelectSourceTimezone": {
+        "description": "Error shown when source timezone is missing",
+        "message": "Por favor, selecione um fuso horário de origem"
+    },
+    "extDescription": {
+        "description": "The name of the extension",
+        "message": "Obtenha a hora UTC atual no seu navegador, com suporte a fusos horários e idiomas, e exiba o Relógio Mundial."
+    },
+    "extName": {
+        "description": "The name of the extension",
+        "message": "NIX UTC & World Time"
+    },
+    "extShortName": {
+        "description": "The short name of the extension",
+        "message": "Hora UTC"
+    },
+    "localLabel": {
+        "description": "Label for local timezone in selectors/displays",
+        "message": "Local"
+    },
+    "popupTitle": {
+        "description": "Title shown in the popup HTML <title>",
+        "message": "NIX UTC & World Time"
+    },
+    "preset1hAgoBtn": {
+        "description": "Preset button: 1 hour ago",
+        "message": "1h atrás"
+    },
+    "presetNowBtn": {
+        "description": "Preset button: now",
+        "message": "Agora"
+    },
+    "presetTomorrowNoonBtn": {
+        "description": "Preset button: tomorrow noon",
+        "message": "Amanhã 12h"
+    },
+    "selectSourceTimezoneOption": {
+        "description": "Default option label for source timezone selector",
+        "message": "Selecionar fuso horário de origem"
+    },
+    "sourceLabel": {
+        "description": "Label for the input source line in conversion results",
+        "message": "Origem"
+    },
+    "timezoneSearchPlaceholder": {
+        "description": "Placeholder text in the timezone search filter input",
+        "message": "Pesquisar fusos horários..."
+    },
+    "toggleConvertBtn": {
+        "description": "Button text for toggling Convert Time section",
+        "message": "CONVERTER HORÁRIO"
+    }
+}

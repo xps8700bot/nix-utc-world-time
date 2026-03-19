@@ -1,0 +1,110 @@
+{
+    "addSelectedBtn": {
+        "description": "Button label to confirm adding the selected timezone",
+        "message": "ДОБАВИТЬ ВЫБРАННОЕ"
+    },
+    "addTimezoneBtn": {
+        "description": "Button text to open timezone selector",
+        "message": "+ ДОБАВИТЬ ЧАСОВОЙ ПОЯС"
+    },
+    "cancelBtn": {
+        "description": "Button label to cancel the add-timezone dialog",
+        "message": "ОТМЕНА"
+    },
+    "collapseBtn": {
+        "description": "Button text for collapsing Convert Time section",
+        "message": "СВЕРНУТЬ"
+    },
+    "convertTitle": {
+        "description": "Title label for the Convert Time section",
+        "message": "Конвертировать время"
+    },
+    "convertedTimesLabel": {
+        "description": "Label shown above the list of converted times",
+        "message": "Конвертированное время:"
+    },
+    "copyAllBtn": {
+        "description": "Button text to copy all conversion results",
+        "message": "КОПИРОВАТЬ ВСЕ"
+    },
+    "copyAllTitle": {
+        "description": "Tooltip for copy-all button",
+        "message": "Копировать все результаты"
+    },
+    "copyThisTimeTitle": {
+        "description": "Tooltip for copy button in conversion result rows",
+        "message": "Копировать это время"
+    },
+    "copyToClipboardTitle": {
+        "description": "Tooltip for copy buttons in the clock list",
+        "message": "Копировать в буфер обмена"
+    },
+    "datetimeInputPlaceholder": {
+        "description": "Placeholder for datetime input",
+        "message": "Введите дату/время (напр., 2024-08-04 15:30, 4 авг 15:30)"
+    },
+    "deleteTimezoneTitle": {
+        "description": "Tooltip for delete timezone button",
+        "message": "Удалить часовой пояс"
+    },
+    "errorEnterDatetime": {
+        "description": "Error shown when datetime input is missing",
+        "message": "Пожалуйста, введите дату/время для конвертации"
+    },
+    "errorInvalidDatetime": {
+        "description": "Error shown when datetime parsing fails",
+        "message": "Неверный формат даты/времени. Попробуйте: 2024-08-04 15:30 или 4 авг 2024 15:30"
+    },
+    "errorSelectSourceTimezone": {
+        "description": "Error shown when source timezone is missing",
+        "message": "Пожалуйста, выберите исходный часовой пояс"
+    },
+    "extDescription": {
+        "description": "The name of the extension",
+        "message": "Получайте текущее время UTC в браузере с поддержкой часовых поясов и локалей, а также отображайте мировое время."
+    },
+    "extName": {
+        "description": "The name of the extension",
+        "message": "NIX UTC & World Time"
+    },
+    "extShortName": {
+        "description": "The short name of the extension",
+        "message": "Время UTC"
+    },
+    "localLabel": {
+        "description": "Label for local timezone in selectors/displays",
+        "message": "Местное"
+    },
+    "popupTitle": {
+        "description": "Title shown in the popup HTML <title>",
+        "message": "NIX UTC & World Time"
+    },
+    "preset1hAgoBtn": {
+        "description": "Preset button: 1 hour ago",
+        "message": "1 ч. назад"
+    },
+    "presetNowBtn": {
+        "description": "Preset button: now",
+        "message": "Сейчас"
+    },
+    "presetTomorrowNoonBtn": {
+        "description": "Preset button: tomorrow noon",
+        "message": "Завтра 12:00"
+    },
+    "selectSourceTimezoneOption": {
+        "description": "Default option label for source timezone selector",
+        "message": "Выберите исходный часовой пояс"
+    },
+    "sourceLabel": {
+        "description": "Label for the input source line in conversion results",
+        "message": "Источник"
+    },
+    "timezoneSearchPlaceholder": {
+        "description": "Placeholder text in the timezone search filter input",
+        "message": "Поиск часовых поясов..."
+    },
+    "toggleConvertBtn": {
+        "description": "Button text for toggling Convert Time section",
+        "message": "КОНВЕРТИРОВАТЬ ВРЕМЯ"
+    }
+}
