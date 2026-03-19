@@ -1,0 +1,110 @@
+{
+    "addSelectedBtn": {
+        "description": "Button label to confirm adding the selected timezone",
+        "message": "追加する"
+    },
+    "addTimezoneBtn": {
+        "description": "Button text to open timezone selector",
+        "message": "+ タイムゾーン追加"
+    },
+    "cancelBtn": {
+        "description": "Button label to cancel the add-timezone dialog",
+        "message": "キャンセル"
+    },
+    "collapseBtn": {
+        "description": "Button text for collapsing Convert Time section",
+        "message": "折りたたむ"
+    },
+    "convertTitle": {
+        "description": "Title label for the Convert Time section",
+        "message": "時刻変換"
+    },
+    "convertedTimesLabel": {
+        "description": "Label shown above the list of converted times",
+        "message": "変換結果："
+    },
+    "copyAllBtn": {
+        "description": "Button text to copy all conversion results",
+        "message": "全てコピー"
+    },
+    "copyAllTitle": {
+        "description": "Tooltip for copy-all button",
+        "message": "全ての結果をコピー"
+    },
+    "copyThisTimeTitle": {
+        "description": "Tooltip for copy button in conversion result rows",
+        "message": "この時刻をコピー"
+    },
+    "copyToClipboardTitle": {
+        "description": "Tooltip for copy buttons in the clock list",
+        "message": "クリップボードにコピー"
+    },
+    "datetimeInputPlaceholder": {
+        "description": "Placeholder for datetime input",
+        "message": "日時を入力（例：2024-08-04 15:30、Aug 4 3:30 PM）"
+    },
+    "deleteTimezoneTitle": {
+        "description": "Tooltip for delete timezone button",
+        "message": "タイムゾーンを削除"
+    },
+    "errorEnterDatetime": {
+        "description": "Error shown when datetime input is missing",
+        "message": "変換する日時を入力してください"
+    },
+    "errorInvalidDatetime": {
+        "description": "Error shown when datetime parsing fails",
+        "message": "日時の形式が無効です。例：2024-08-04 15:30 または Aug 4, 2024 3:30 PM"
+    },
+    "errorSelectSourceTimezone": {
+        "description": "Error shown when source timezone is missing",
+        "message": "変換元のタイムゾーンを選択してください"
+    },
+    "extDescription": {
+        "description": "The name of the extension",
+        "message": "UTCおよびワールドクロックをブラウザで表示。タイムゾーンとロケールに対応した時刻変換機能付き。"
+    },
+    "extName": {
+        "description": "The name of the extension",
+        "message": "NIX UTC & World Time"
+    },
+    "extShortName": {
+        "description": "The short name of the extension",
+        "message": "UTC時計"
+    },
+    "localLabel": {
+        "description": "Label for local timezone in selectors/displays",
+        "message": "現地時刻"
+    },
+    "popupTitle": {
+        "description": "Title shown in the popup HTML <title>",
+        "message": "NIX UTC & World Time"
+    },
+    "preset1hAgoBtn": {
+        "description": "Preset button: 1 hour ago",
+        "message": "1時間前"
+    },
+    "presetNowBtn": {
+        "description": "Preset button: now",
+        "message": "現在"
+    },
+    "presetTomorrowNoonBtn": {
+        "description": "Preset button: tomorrow noon",
+        "message": "明日12時"
+    },
+    "selectSourceTimezoneOption": {
+        "description": "Default option label for source timezone selector",
+        "message": "変換元タイムゾーンを選択"
+    },
+    "sourceLabel": {
+        "description": "Label for the input source line in conversion results",
+        "message": "変換元"
+    },
+    "timezoneSearchPlaceholder": {
+        "description": "Placeholder text in the timezone search filter input",
+        "message": "タイムゾーンを検索..."
+    },
+    "toggleConvertBtn": {
+        "description": "Button text for toggling Convert Time section",
+        "message": "時刻変換"
+    }
+}

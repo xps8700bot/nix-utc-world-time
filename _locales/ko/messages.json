@@ -1,0 +1,110 @@
+{
+    "addSelectedBtn": {
+        "description": "Button label to confirm adding the selected timezone",
+        "message": "추가"
+    },
+    "addTimezoneBtn": {
+        "description": "Button text to open timezone selector",
+        "message": "+ 시간대 추가"
+    },
+    "cancelBtn": {
+        "description": "Button label to cancel the add-timezone dialog",
+        "message": "취소"
+    },
+    "collapseBtn": {
+        "description": "Button text for collapsing Convert Time section",
+        "message": "접기"
+    },
+    "convertTitle": {
+        "description": "Title label for the Convert Time section",
+        "message": "시간 변환"
+    },
+    "convertedTimesLabel": {
+        "description": "Label shown above the list of converted times",
+        "message": "변환 결과:"
+    },
+    "copyAllBtn": {
+        "description": "Button text to copy all conversion results",
+        "message": "전체 복사"
+    },
+    "copyAllTitle": {
+        "description": "Tooltip for copy-all button",
+        "message": "모든 결과 복사"
+    },
+    "copyThisTimeTitle": {
+        "description": "Tooltip for copy button in conversion result rows",
+        "message": "이 시간 복사"
+    },
+    "copyToClipboardTitle": {
+        "description": "Tooltip for copy buttons in the clock list",
+        "message": "클립보드에 복사"
+    },
+    "datetimeInputPlaceholder": {
+        "description": "Placeholder for datetime input",
+        "message": "날짜/시간 입력 (예: 2024-08-04 15:30, Aug 4 3:30 PM)"
+    },
+    "deleteTimezoneTitle": {
+        "description": "Tooltip for delete timezone button",
+        "message": "시간대 삭제"
+    },
+    "errorEnterDatetime": {
+        "description": "Error shown when datetime input is missing",
+        "message": "변환할 날짜/시간을 입력하세요"
+    },
+    "errorInvalidDatetime": {
+        "description": "Error shown when datetime parsing fails",
+        "message": "날짜/시간 형식이 올바르지 않습니다. 예: 2024-08-04 15:30 또는 Aug 4, 2024 3:30 PM"
+    },
+    "errorSelectSourceTimezone": {
+        "description": "Error shown when source timezone is missing",
+        "message": "원본 시간대를 선택하세요"
+    },
+    "extDescription": {
+        "description": "The name of the extension",
+        "message": "브라우저에서 UTC 시간과 세계 시계를 확인하세요. 시간대 및 로케일 지원, 시간 변환 기능 포함."
+    },
+    "extName": {
+        "description": "The name of the extension",
+        "message": "NIX UTC & World Time"
+    },
+    "extShortName": {
+        "description": "The short name of the extension",
+        "message": "UTC 시계"
+    },
+    "localLabel": {
+        "description": "Label for local timezone in selectors/displays",
+        "message": "현지 시간"
+    },
+    "popupTitle": {
+        "description": "Title shown in the popup HTML <title>",
+        "message": "NIX UTC & World Time"
+    },
+    "preset1hAgoBtn": {
+        "description": "Preset button: 1 hour ago",
+        "message": "1시간 전"
+    },
+    "presetNowBtn": {
+        "description": "Preset button: now",
+        "message": "현재"
+    },
+    "presetTomorrowNoonBtn": {
+        "description": "Preset button: tomorrow noon",
+        "message": "내일 정오"
+    },
+    "selectSourceTimezoneOption": {
+        "description": "Default option label for source timezone selector",
+        "message": "원본 시간대 선택"
+    },
+    "sourceLabel": {
+        "description": "Label for the input source line in conversion results",
+        "message": "원본"
+    },
+    "timezoneSearchPlaceholder": {
+        "description": "Placeholder text in the timezone search filter input",
+        "message": "시간대 검색..."
+    },
+    "toggleConvertBtn": {
+        "description": "Button text for toggling Convert Time section",
+        "message": "시간 변환"
+    }
+}
